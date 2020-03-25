@@ -1,0 +1,20 @@
+{
+  "header": {
+    "home": "Home",
+    "demos": "Demos"
+  },
+
+  "footer": {
+    "copyright": "copyright © 2020 Ethan Ozelius"
+  },
+
+  "home": {
+    "title": "Ethan Ozelius",
+    "subTitle": "Just a drifting computer hacker trying to get some sunshine."
+  },
+
+  "demos": {
+    "title": "Demos",
+    "subTitle": "And hello world projects"
+  }
+}

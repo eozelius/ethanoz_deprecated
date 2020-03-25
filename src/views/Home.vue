@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-view">
+    <main>
+      <Picture
+        url="profile_pictures/istanbul_profile_pic1.jpg"
+        altText="Ethan Ozelius Istanbul skull and crossbones profile picture"
+        :circle="true"
+      />
+
+      <LegoViewTitle
+        :title="$t('home.title')"
+        :sub-title="$t('home.subTitle')"
+      />
+    </main>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import LegoViewTitle from '@/legos/LegoViewTitle.vue'
+import Picture from '@/components/Picture.vue'
+
+import '@/assets/styles/ethanoz.scss'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    LegoViewTitle,
+    Picture
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home-view {
+  height: 100%;
+}
+</style>
