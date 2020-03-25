@@ -2,7 +2,7 @@
   <div class="demos-view">
     <Picture
       url="demos/octocat.png"
-      altText="Demo Projects and hello world apps"
+      :altText="$t('demos.subTitle')"
       :transparentBG="true"
     />
 
@@ -14,7 +14,21 @@
     <a :href="minesweeperLink">
       <Picture
         url="demos/minesweeper.png"
-        altText="Minesweeper demo"
+        :altText="$t('demos.minesweeperLink')"
+      />
+    </a>
+
+    <a :href="minesweeperLink">
+      <Picture
+        url="demos/minesweeper.png"
+        :altText="$t('demos.minesweeperLink')"
+      />
+    </a>
+
+    <a :href="minesweeperLink">
+      <Picture
+        url="demos/minesweeper.png"
+        :altText="$t('demos.minesweeperLink')"
       />
     </a>
   </div>
@@ -33,14 +47,8 @@ export default {
 
   data: function () {
     return {
-      minesweeperLink: process.env.MINESWEEPER_URL
+      minesweeperLink: process.env.VUE_APP_MINESWEEPER_URL
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.demos-view {
-  height: 100%;
-}
-</style>

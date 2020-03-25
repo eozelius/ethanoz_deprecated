@@ -21,7 +21,8 @@ export default {
   line-height: 1em;
   padding: 30px 0;
   background-color: $color-dark-blue;
-  align-items: flex-start;
+  align-self: flex-end;
+  margin-top: auto;
 
   h5 {
     display: inline;
