@@ -1,34 +1,39 @@
 # ethanoz
+Ethan Ozelius Portfolio application eventually will be available on ethanoz.com.  This is a Vue Front End app that will serve as a central interface for accessing all my porfolio, projects, demos and playground environments.
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn start
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn run build
 ```
 
 ### Run your unit tests
 ```
-npm run test:unit
+yarn run test:unit
 ```
 
 ### Run your end-to-end tests
 ```
-npm run test:e2e
+yarn run test:e2e
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+yarn run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Demos
+### MineSweeper
+Vue app available at https://github.com/eozelius/vue-minesweeper
+
+### 5 day weather forcast
+React app available at https://github.com/eozelius/buildit
