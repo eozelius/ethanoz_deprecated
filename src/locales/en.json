@@ -16,6 +16,15 @@
   "demos": {
     "title": "Demos",
     "subTitle": "Passion projects and demos",
-    "minesweeperLink": "Minesweeper demo link"
+    "text": "Link github repos",
+    "githubLink": "https://github.com/eozelius",
+    "minesweeper": {
+      "title": "Minesweeeper",
+      "minesweeperLinkAltText": "Minesweeper demo link"
+    },
+    "weather": {
+      "title": "5 day weather forcast - now with more freezing rain",
+      "weatherLinkAltText": "5 day weather forecast demo link"
+    }
   }
 }

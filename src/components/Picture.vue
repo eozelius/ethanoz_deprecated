@@ -43,8 +43,8 @@ export default {
   justify-content: center;
 
   img {
-    width: 55vw;
-    height: 25vh;
+    width: 70vw;
+    height: 37vh;
     margin: 5%;
     border-radius: 5%;
     box-shadow: 5px 5px 5px $color-dark-gray;

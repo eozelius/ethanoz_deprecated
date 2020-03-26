@@ -2,6 +2,20 @@
   <div class="lego-view-title">
     <h1 class="view-title-h1">{{ title }}</h1>
     <h3 class="view-sub-title-h3">{{ subTitle }}</h3>
+
+    <div
+      v-if="text"
+      class="optional-text-block-container"
+    >
+      <a
+        v-if="textLink"
+        :href="textLink"
+        target="_blank"
+      >
+        <p>{{ text }}</p>
+      </a>
+      <p v-else>{{ text }}</p>
+    </div>
   </div>
 </template>
 
@@ -16,6 +30,16 @@ export default {
     subTitle: {
       type: String,
       required: true
+    },
+    text: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    textLink: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }
@@ -44,6 +68,11 @@ export default {
 .view-sub-title-h3 {
   margin: 6% 0 4%;
   color: $color-dark-gray;
+  text-align: right;
+}
+
+.optional-text-block-container {
+  margin: 7% 0 1%;
   text-align: right;
 }
 
