@@ -1,10 +1,13 @@
 <template>
   <div class="demos-view">
-    <Picture
-      url="demos/octocat.png"
-      :altText="$t('demos.subTitle')"
-      :transparentBG="true"
-    />
+    <div class="github-logo-container">
+      <Picture
+        url="demos/octocat.png"
+        :altText="$t('demos.subTitle')"
+        :circle="true"
+        :noShadow="true"
+      />
+    </div>
 
     <LegoViewTitle
       :title="$t('demos.title')"

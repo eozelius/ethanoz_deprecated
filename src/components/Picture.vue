@@ -1,7 +1,10 @@
 <template>
   <div class="picture">
     <img
-      :class="{ circle: this.circle, 'transparent-bg': this.transparentBG }"
+      :class="{
+        circle: this.circle,
+        'noShadow': this.noShadow
+      }"
       :src="require(`@/assets/images/${this.url}`)"
       :alt="altText"
     />
@@ -26,8 +29,7 @@ export default {
       required: false,
       default: false
     },
-
-    transparentBG: {
+    noShadow: {
       type: Boolean,
       required: false,
       default: false
@@ -40,12 +42,11 @@ export default {
 @import '../assets/styles/colors.scss';
 .picture {
   display: flex;
-  justify-content: center;
 
   img {
-    width: 70vw;
-    height: 37vh;
-    margin: 5%;
+    width: 250px;
+    height: 250px;
+    margin: 5% auto;
     border-radius: 5%;
     box-shadow: 5px 5px 5px $color-dark-gray;
   }
@@ -54,8 +55,17 @@ export default {
     border-radius: 50%;
   }
 
-  img.transparent-bg {
+  img.noShadow {
     box-shadow: none;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .picture {
+    img {
+      width: 340px;
+      height: 340px;
+    }
   }
 }
 </style>
