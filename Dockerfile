@@ -1,17 +1,18 @@
-# base image
-FROM node:12.16.1-alpine3.9
-
-# set working directory
+# build environment
+FROM node:12.16.1-alpine3.9 as build
 WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 RUN yarn install
 RUN yarn global add @vue/cli@4.2.3
+COPY . /app
+RUN yarn build
 
-# start app
-CMD ["yarn", "start"]
+# production environment
+FROM nginx:1.16.0-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
