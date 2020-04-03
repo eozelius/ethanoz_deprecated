@@ -54,9 +54,6 @@ export default {
   animation: 1s ease-out 0s 1 slideInFromLeft;
 
   img {
-    transition: 3s;
-    left: 0;
-
     width: 250px;
     height: 250px;
     margin: 5% auto;

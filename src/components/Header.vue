@@ -5,7 +5,7 @@
         <router-link to="/">{{ $t('header.home') }}</router-link> |
       </h4>
       <h4>
-        <router-link to="/demos">{{ $t('header.demos') }}</router-link>
+        <router-link to="/portfolio">{{ $t('header.portfolio') }}</router-link>
       </h4>
     </nav>
   </header>

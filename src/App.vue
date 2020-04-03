@@ -1,13 +1,7 @@
 <template>
   <div
     id="app"
-    :style="{
-      backgroundImage: 'url(' + require('@/assets/images/backgrounds/' + backgroundImageUrl) + ')',
-      '-webkit-background-size': 'cover',
-      '-moz-background-size': 'cover',
-      '-o-background-size': 'cover',
-      'background-size': 'cover'
-    }"
+    :style="{ backgroundImage: 'url(' + require('@/assets/images/backgrounds/' + backgroundImageUrl) + ')' }"
   >
     <Header />
     <router-view/>
@@ -18,6 +12,7 @@
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import isMobile from '@/utils/isMobile'
 import '@/assets/styles/reset.scss'
 import '@/assets/styles/ethanoz.scss'
 
@@ -30,6 +25,7 @@ export default {
 
   computed: {
     backgroundImageUrl: function () {
+      const size = isMobile() ? 'small' : 'large'
       const options = [
         'colorado',
         'budapest',
@@ -40,8 +36,18 @@ export default {
         'salento'
       ]
       const randomBackground = options[Math.floor(Math.random() * options.length)]
-      return `${randomBackground}_bg1.jpg`
+      return `${size}/${randomBackground}.jpg`
     }
   }
 }
 </script>
+
+<style lang="scss">
+#app {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>

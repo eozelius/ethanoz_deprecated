@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Home",
-    "demos": "Demos"
+    "portfolio": "Portfolio"
   },
 
   "footer": {
@@ -14,8 +14,8 @@
     "description": "- Software Engineer learning by curiousity and embracing.  When I'm not coding, I'm probably hiking the Hudson Valley, skating in a hockey game or doing some carpentry."
   },
 
-  "demos": {
-    "title": "Demos",
+  "portfolio": {
+    "title": "Portfolio",
     "subTitle": "Passion projects and demos",
     "text": "Link github repos",
     "githubLink": "https://github.com/eozelius",

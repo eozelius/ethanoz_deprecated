@@ -21,7 +21,6 @@
 <script>
 import LegoViewTitle from '@/legos/LegoViewTitle.vue'
 import Picture from '@/components/Picture.vue'
-
 import '@/assets/styles/ethanoz.scss'
 
 export default {
@@ -41,7 +40,7 @@ export default {
         'mexico'
       ]
       const randomProfilePic = options[Math.floor(Math.random() * options.length)]
-      return `profile_pictures/${randomProfilePic}_profile_pic1.jpg`
+      return `profile_pictures/${randomProfilePic}.jpg`
     }
   }
 }

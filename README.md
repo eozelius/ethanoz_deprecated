@@ -1,5 +1,5 @@
 # ethanoz
-Ethan Ozelius Portfolio application eventually will be available on ethanoz.com.  This is a Vue Front End app that will serve as a central interface for accessing all my porfolio, projects, demos and playground environments.
+Ethan Ozelius Portfolio application eventually will be available on ethanoz.com.  This is a Vue Front End app that will serve as a central interface for accessing all my portfolio, projects, demos and playground environments.
 
 ## Project setup
 ```
@@ -31,7 +31,7 @@ yarn run test:e2e
 yarn run lint
 ```
 
-## Demos
+## Portfolio
 ### MineSweeper
 Vue app available at https://github.com/eozelius/vue-minesweeper
 
