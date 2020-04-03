@@ -40,10 +40,23 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/styles/colors.scss';
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .picture {
   display: flex;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 
   img {
+    transition: 3s;
+    left: 0;
+
     width: 250px;
     height: 250px;
     margin: 5% auto;

@@ -37,3 +37,12 @@ Vue app available at https://github.com/eozelius/vue-minesweeper
 
 ### 5 day weather forcast
 React app available at https://github.com/eozelius/buildit
+
+### Todo
+#### DevOps
+  - Create Jenkins pipeline for automatic dockerized deployments
+  - Automate separate docker containers for frontend, nginx
+  - setup similar configs for demo projects.  SPA demos can be deployed with S3.  Ideally on sub-domains.
+
+#### Front end
+  - make images smaller and semi transparent

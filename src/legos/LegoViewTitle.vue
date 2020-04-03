@@ -47,6 +47,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/styles/colors.scss';
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
 .lego-view-title {
   display: flex;
@@ -55,10 +63,11 @@ export default {
   width: 80%;
   border-radius: 7px;
   box-shadow: 5px 5px 5px $color-dark-gray;
-  margin: 5%;
+  margin: 5% auto;
   padding: 3% 4%;
   background: $color-lite-gray;
   opacity: .85;
+  animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
 .view-title-h1 {
@@ -68,7 +77,7 @@ export default {
 .view-sub-title-h3 {
   margin: 6% 0 4%;
   color: $color-dark-gray;
-  text-align: right;
+  text-align: left;
 }
 
 .optional-text-block-container {

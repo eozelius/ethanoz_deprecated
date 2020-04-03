@@ -1,5 +1,14 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    :style="{
+      backgroundImage: 'url(' + require('@/assets/images/backgrounds/' + backgroundImageUrl) + ')',
+      '-webkit-background-size': 'cover',
+      '-moz-background-size': 'cover',
+      '-o-background-size': 'cover',
+      'background-size': 'cover'
+    }"
+  >
     <Header />
     <router-view/>
     <Footer />
@@ -17,6 +26,22 @@ export default {
   components: {
     Header,
     Footer
+  },
+
+  computed: {
+    backgroundImageUrl: function () {
+      const options = [
+        'colorado',
+        'budapest',
+        'colombia',
+        'nyc',
+        'peru',
+        'sabaneta',
+        'salento'
+      ]
+      const randomBackground = options[Math.floor(Math.random() * options.length)]
+      return `${randomBackground}_bg1.jpg`
+    }
   }
 }
 </script>

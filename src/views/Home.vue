@@ -3,8 +3,8 @@
     <main>
       <div class="profile-picture-container">
         <Picture
-          url="profile_pictures/istanbul_profile_pic1.jpg"
-          altText="Ethan Ozelius Istanbul skull and crossbones profile picture"
+          :url="profilePictureUrl"
+          altText="Ethan Ozelius profile picture"
           :circle="true"
         />
       </div>
@@ -12,6 +12,7 @@
       <LegoViewTitle
         :title="$t('home.title')"
         :sub-title="$t('home.subTitle')"
+        :text="$t('home.description')"
       />
     </main>
   </div>
@@ -28,6 +29,20 @@ export default {
   components: {
     LegoViewTitle,
     Picture
+  },
+
+  computed: {
+    profilePictureUrl: function () {
+      const options = [
+        'colombia',
+        'flushing',
+        'hudson',
+        'istanbul',
+        'mexico'
+      ]
+      const randomProfilePic = options[Math.floor(Math.random() * options.length)]
+      return `profile_pictures/${randomProfilePic}_profile_pic1.jpg`
+    }
   }
 }
 </script>
