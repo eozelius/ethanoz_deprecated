@@ -8,11 +8,3 @@ RUN yarn install
 RUN yarn global add @vue/cli@4.2.3
 COPY . /app
 RUN yarn build
-
-# production environment
-FROM nginx:1.16.0-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-EXPOSE 443
-CMD ["nginx", "-g", "daemon off;"]
