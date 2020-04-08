@@ -15,9 +15,9 @@
   },
 
   "portfolio": {
-    "title": "Portfolio",
-    "subTitle": "Passion projects and demos",
-    "text": "Link github repos",
+    "title": "Ethan Ozelius Portfolio",
+    "subTitle": "Passion projects, Tutorials and Hello World Apps",
+    "text": "github",
     "githubLink": "https://github.com/eozelius",
     "minesweeper": {
       "title": "Minesweeeper",
