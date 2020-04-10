@@ -7,6 +7,7 @@
       }"
       :src="require(`@/assets/images/${this.url}`)"
       :alt="altText"
+      :data-test="dataTest"
     />
   </div>
 </template>
@@ -33,6 +34,12 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    }
+  },
+
+  computed: {
+    dataTest: function () {
+      return this.altText.split(' ').map(word => word.toLowerCase()).join('-')
     }
   }
 }

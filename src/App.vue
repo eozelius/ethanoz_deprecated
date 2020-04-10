@@ -4,7 +4,7 @@
     :style="{ backgroundImage: 'url(' + require('@/assets/images/backgrounds/' + backgroundImageUrl) + ')' }"
   >
     <Header />
-    <router-view/>
+    <router-view />
     <Footer />
   </div>
 </template>
