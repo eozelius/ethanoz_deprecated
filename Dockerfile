@@ -1,4 +1,4 @@
-# Frontend
+# ethanoz.com Frontend
 FROM node:12.16.1-alpine3.9 as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
@@ -10,26 +10,56 @@ COPY ./ethanoz /app
 RUN yarn build
 RUN pwd
 RUN ls -lah ./dist
-# COPY ./dist/index.html ./ethanoz-frontend/
-# RUN ls -lah ./ethanoz-frontend
+
+# minesweeper.ethanoz.com Frontend
+FROM node:12.16.1-alpine3.9 as minesweeperbuild
+WORKDIR /minesweeper
+ENV PATH /minesweeper/node_modules/.bin:$PATH
+COPY vue-minesweeper/package.json /minesweeper/package.json
+COPY vue-minesweeper/yarn.lock/ minesweeper/yarn.lock
+RUN yarn install
+RUN yarn global add @vue/cli@4.2.3
+COPY vue-minesweeper /minesweeper
+RUN yarn build
+RUN pwd
+RUN ls -lah ./dist
+
+# weather.ethanoz.com Frontend
+FROM node:12.16.1-alpine3.9 as weatherbuild
+WORKDIR /weather
+ENV PATH /cra-five-day-forecast/node_modules/.bin:$PATH
+COPY cra-five-day-forecast/package.json /weather/package.json
+COPY cra-five-day-forecast/yarn.lock /weather/yarn.lock
+RUN yarn install
+COPY cra-five-day-forecast /weather
+RUN yarn build
 
 # nginx
 FROM nginx:1.16.0-alpine
-COPY production.conf /etc/nginx/conf.d/default.conf
-RUN cat /etc/nginx/conf.d/default.conf
+COPY production-nginx.conf /etc/nginx/conf.d/default.conf
 
+# copy ethanoz vue app into default nginx html dir
 COPY --from=build /app/dist /usr/share/nginx/html
-# RUN ls -lah /ethanoz-frontend
 RUN ls -lah /usr/share/nginx/html
+
+# copy minesweeper vue app into nginx minesweeper dir
+RUN mkdir /usr/share/nginx/minesweeper
+COPY --from=minesweeperbuild /minesweeper/dist /usr/share/nginx/minesweeper
+RUN ls -lah /usr/share/nginx/minesweeper
+
+# copy weather react app into nginx weather dir
+RUN mkdir /usr/share/nginx/weather
+COPY --from=weatherbuild /weather/build /usr/share/nginx/weather
+RUN ls -lah /usr/share/nginx/weather
 
 COPY dh-param/dhparam-2048.pem /etc/ssl/certs/dhparam-2048.pem
 RUN ls -lah /etc/ssl/certs/dhparam-2048.pem
 
-COPY letsencrypt/fullchain.pem /etc/letsencrypt/live/ethanoz.com/fullchain.pem
-RUN ls -lah /etc/letsencrypt/live/ethanoz.com/fullchain.pem
+COPY certs/fullchain.pem /etc/letsencrypt/live/ethanoz.com/fullchain.pem
+RUN cat /etc/letsencrypt/live/ethanoz.com/fullchain.pem
 
-COPY letsencrypt/privkey.pem /etc/letsencrypt/live/ethanoz.com/privkey.pem
-RUN ls -lah /etc/letsencrypt/live/ethanoz.com/privkey.pem
+COPY certs/privkey.pem /etc/letsencrypt/live/ethanoz.com/privkey.pem
+RUN cat /etc/letsencrypt/live/ethanoz.com/privkey.pem
 
 EXPOSE 80
 EXPOSE 443
