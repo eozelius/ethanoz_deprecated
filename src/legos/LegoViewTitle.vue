@@ -2,9 +2,8 @@
   <div class="lego-view-title">
     <h1 class="view-title-h1">{{ title }}</h1>
     <h3 class="view-sub-title-h3">{{ subTitle }}</h3>
-
     <div
-      v-if="text"
+      v-if="typeof text === 'string'"
       class="optional-text-block-container"
     >
       <a
@@ -15,6 +14,19 @@
         <p>{{ text }}</p>
       </a>
       <p v-else>{{ text }}</p>
+    </div>
+    <div
+      v-else-if="Array.isArray(text)"
+      class="test-lists">
+      <div v-for="(item, i) in text" :key="i">
+        <a
+          v-if="item.link"
+          :href="item.link"
+          target="_blank">
+          <p>{{ item.text }}</p>
+        </a>
+        <p v-else>{{ item.text }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +44,7 @@ export default {
       required: true
     },
     text: {
-      type: String,
+      type: [String, Array],
       required: false,
       default: ''
     },
@@ -83,6 +95,11 @@ export default {
 .optional-text-block-container {
   margin: 7% 0 1%;
   text-align: right;
+}
+
+.test-lists p {
+  text-align: right;
+  margin-bottom: .5em;
 }
 
 </style>

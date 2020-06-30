@@ -17,15 +17,21 @@
   "portfolio": {
     "title": "Ethan Ozelius Portfolio",
     "subTitle": "Passion projects, Tutorials and Hello World Apps",
-    "text": "github",
+    "github": "github profile",
     "githubLink": "https://github.com/eozelius",
+    "linkedIn": "LinkedIn",
+    "linkedInLink": "https://www.linkedin.com/in/ethan-ozelius-6884b696/",
     "minesweeper": {
       "title": "Minesweeeper",
-      "minesweeperLinkAltText": "Minesweeper demo link"
+      "description": "Classic minesweeper game that is fully customizable for size and difficulty.  Built in Vue.js, dockerized and deployed into AWS with Nginx.",
+      "minesweeperLinkAltText": "Minesweeper demo link",
+      "githubLink": "View this project on"
     },
     "weather": {
       "title": "5 day weather forcast - now with more freezing rain",
-      "weatherLinkAltText": "5 day weather forecast demo link"
+      "description": "Simple 5 day weather app for New York city.  Bootstrapped with Create-react-app, dockerized and deployed into AWS with Nginx.",
+      "weatherLinkAltText": "5 day weather forecast demo link",
+      "githubLink": "View this project on"
     }
   }
 }
