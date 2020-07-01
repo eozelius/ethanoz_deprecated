@@ -3,7 +3,7 @@
     <img
       :class="{
         circle: this.circle,
-        'noShadow': this.noShadow
+        'no-shadow': this.noShadow
       }"
       :src="require(`@/assets/images/${this.url}`)"
       :alt="altText"
@@ -27,13 +27,11 @@ export default {
     },
     circle: {
       type: Boolean,
-      required: false,
       default: false
     },
     noShadow: {
       type: Boolean,
-      required: false,
-      default: false
+      default: true
     }
   },
 
@@ -72,7 +70,7 @@ export default {
     border-radius: 50%;
   }
 
-  img.noShadow {
+  img.no-shadow {
     box-shadow: none;
   }
 }

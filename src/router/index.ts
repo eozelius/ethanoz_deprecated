@@ -23,6 +23,15 @@ const routes = [
     meta: {
       title: 'Ethan Oz - Portfolio'
     }
+  },
+  {
+    path: '/medium',
+    name: 'Medium',
+    component: () => import(/* webpackChunkName: "portfolio" */ '../views/Medium.vue'),
+
+    meta: {
+      title: 'Ethan Oz - Medium'
+    }
   }
 ]
 
