@@ -31,5 +31,9 @@ export default {
   h4 {
     display: inline;
   }
+
+  .router-link-active.router-link-exact-active {
+    color: $color-white;
+  }
 }
 </style>
