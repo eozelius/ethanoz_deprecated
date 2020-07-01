@@ -1,18 +1,12 @@
 <template>
   <div class="home-view">
     <main>
-      <div class="profile-picture-container">
-        <Picture
-          :url="profilePictureUrl"
-          altText="Ethan Ozelius profile picture"
-          :circle="true"
-        />
-      </div>
-
       <LegoViewTitle
         :title="$t('home.title')"
-        :sub-title="$t('home.subTitle')"
-        :text="$t('home.description')"
+        :description="$t('home.description')"
+        :subtext="$t('home.subtext')"
+        :image-url="profilePictureUrl"
+        image-alt-text="ethan Ozelius profile picture"
       />
     </main>
   </div>
@@ -20,14 +14,12 @@
 
 <script>
 import LegoViewTitle from '@/legos/LegoViewTitle.vue'
-import Picture from '@/components/Picture.vue'
 import '@/assets/styles/ethanoz.scss'
 
 export default {
   name: 'Home',
   components: {
-    LegoViewTitle,
-    Picture
+    LegoViewTitle
   },
 
   computed: {

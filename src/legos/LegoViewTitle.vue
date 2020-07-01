@@ -1,57 +1,79 @@
 <template>
-  <div class="lego-view-title">
-    <h1 class="view-title-h1">{{ title }}</h1>
-    <h3 class="view-sub-title-h3">{{ subTitle }}</h3>
-    <div
-      v-if="typeof text === 'string'"
-      class="optional-text-block-container"
-    >
-      <a
-        v-if="textLink"
-        :href="textLink"
-        target="_blank"
-      >
-        <p>{{ text }}</p>
-      </a>
-      <p v-else>{{ text }}</p>
+  <div>
+    <!-- Picture -->
+    <div class="lego-view-title__picture">
+      <div v-if="imageUrl">
+        <Picture
+          :url="imageUrl"
+          :altText="imageAltText"
+          :circle="true"
+        />
+      </div>
+      <slot v-else name="picture"></slot>
     </div>
-    <div
-      v-else-if="Array.isArray(text)"
-      class="test-lists">
-      <div v-for="(item, i) in text" :key="i">
-        <a
-          v-if="item.link"
-          :href="item.link"
-          target="_blank">
-          <p>{{ item.text }}</p>
-        </a>
-        <p v-else>{{ item.text }}</p>
+
+    <div class="lego-view-title__text">
+      <!-- Title -->
+      <h1 class="lego-view-title__title">{{ title }}</h1>
+
+      <!-- Description -->
+      <div v-if="Array.isArray(description)">
+        <h3
+          class="lego-view-title__description"
+          v-for="(d, i) in description"
+          :key="i"
+        >
+          {{ d }}
+        </h3>
+      </div>
+      <h3 v-else class="lego-view-title__description">{{ description }}</h3>
+
+      <!-- subtext -->
+      <div class="lego-view-title__subtext">
+        <div v-if="subtext">
+          <div v-if="Array.isArray(subtext)">
+            <p v-for="(text, i) in subtext" :key="i">{{ text }}</p>
+          </div>
+
+          <div v-else-if="typeof subtext === 'string'">
+            <p>{{ subtext }}</p>
+          </div>
+        </div>
+        <slot v-else name="subtext"></slot>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Picture from '@/components/Picture.vue'
+
 export default {
   name: 'LegoViewTitle',
+  components: {
+    Picture
+  },
   props: {
     title: {
       type: String,
       required: true
     },
-    subTitle: {
-      type: String,
-      required: true
+    description: {
+      type: [String, Array],
+      default: ''
     },
-    text: {
+    subtext: {
       type: [String, Array],
       required: false,
       default: ''
     },
-    textLink: {
+    imageUrl: {
       type: String,
-      required: false,
-      default: ''
+      required: false
+    },
+    imageAltText: {
+      type: String,
+      default: 'image'
     }
   }
 }
@@ -68,10 +90,9 @@ export default {
   }
 }
 
-.lego-view-title {
+.lego-view-title__text {
   display: flex;
   flex-direction: column;
-  opacity: .95;
   width: 80%;
   border-radius: 7px;
   box-shadow: 5px 5px 5px $color-dark-gray;
@@ -82,24 +103,26 @@ export default {
   animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
-.view-title-h1 {
+.lego-view-title__title {
   color: $color-dark-blue;
 }
 
-.view-sub-title-h3 {
+.lego-view-title__description {
   margin: 6% 0 4%;
   color: $color-dark-gray;
   text-align: left;
 }
 
-.optional-text-block-container {
-  margin: 7% 0 1%;
-  text-align: right;
-}
-
-.test-lists p {
+.lego-view-title__subtext p {
   text-align: right;
   margin-bottom: .5em;
 }
 
+@media screen and (min-width: 420px) {
+  .lego-view-title__picture {
+    width: 350px;
+    height: 350px;
+    margin: 5% 5% 5% 10%;
+  }
+}
 </style>

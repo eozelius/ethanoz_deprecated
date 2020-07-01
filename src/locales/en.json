@@ -1,7 +1,8 @@
 {
   "header": {
     "home": "Home",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "medium": "Medium"
   },
 
   "footer": {
@@ -10,16 +11,16 @@
 
   "home": {
     "title": "Ethan Ozelius",
-    "subTitle": "Just a drifting computer hacker trying to get some sunshine.",
-    "description": "- Software Engineer learning by building and embracing the unknown.  When I'm not coding, I'm probably hiking the Hudson Valley, skating in a hockey game or doing some carpentry."
+    "description": "Just a drifting computer hacker trying to get some sunshine.",
+    "subtext": "- Software Engineer learning by building and embracing the unknown.  When I'm not coding, I'm probably hiking the Hudson Valley, skating in a hockey game or doing some carpentry."
   },
 
   "portfolio": {
     "title": "Ethan Ozelius Portfolio",
-    "subTitle": "Passion projects, Tutorials and Hello World Apps",
+    "description": "Open source projects, Games and Demo Apps",
     "github": "github profile",
     "githubLink": "https://github.com/eozelius",
-    "linkedIn": "LinkedIn",
+    "linkedIn": "linkedin profile",
     "linkedInLink": "https://www.linkedin.com/in/ethan-ozelius-6884b696/",
     "minesweeper": {
       "title": "Minesweeeper",
@@ -33,5 +34,14 @@
       "weatherLinkAltText": "5 day weather forecast demo link",
       "githubLink": "View this project on"
     }
+  },
+
+  "medium": {
+    "title": "Musings of a drifting hacker",
+    "logoAltText": "medium.com logo",
+    "description": "I write, usually with a technical twist, hopefully funny, but if nothing else it's saved on the internet forever.",
+    "subtext": "medium profile",
+    "mediumLink": "https://medium.com/@e.ozelius",
+    "readOnMedium": "read this article on"
   }
 }
