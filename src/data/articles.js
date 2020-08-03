@@ -1,7 +1,7 @@
 const en = [
   {
     title: 'Vue.js Mobile Desktop Optimized Images',
-    mainImagePath: 'vue-js-mobile-desktop-optimized-images/workbench.jpg',
+    mainImagePath: 'vue-js-mobile-desktop-optimized-images/original_salento.jpg',
     mediumLink: 'https://medium.com/@e.ozelius/vue-js-mobile-desktop-optimized-images-7b93f2afc43b',
     paragraphs: [
       {
@@ -23,8 +23,8 @@ const en = [
       },
       {
         type: 'image',
-        url: 'vue-js-mobile-desktop-optimized-images/workbench.jpg',
-        altText: 'workbench image'
+        url: 'vue-js-mobile-desktop-optimized-images/original_salento.jpg',
+        altText: 'original Salento Colombia image'
       },
       {
         type: 'text',
@@ -134,7 +134,7 @@ const en = [
       },
       {
         type: 'image',
-        url: 'vue-js-mobile-desktop-optimized-images/optimized_images.gif',
+        url: 'vue-js-mobile-desktop-optimized-images/optimized-images.gif',
         altText: 'optimized images in action gif',
         dots: true
       },
