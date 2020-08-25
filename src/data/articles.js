@@ -126,7 +126,7 @@ const en = [
       },
       {
         type: 'text',
-        text: 'The only interesting bit about this component is the <img :src=“require(getOptimizedImage) />, which dynamically loads an image from either the large or small directory, based on the isMobile().'
+        text: 'The only interesting bit about this component is the <img :src= "require(getOptimizedImage)" />, which dynamically loads an image from either the large or small directory, based on the isMobile().'
       },
       {
         type: 'text',
@@ -178,7 +178,7 @@ const en = [
       },
       {
         type: 'text',
-        text: 'Only when our <Picture /> component is rendered, will the <img :src=“require(getOptimizedImage) /> initiate a network request for our image.'
+        text: 'Only when our <Picture /> component is rendered, will the <img :src= "require(getOptimizedImage)" /> initiate a network request for our image.'
       },
       {
         type: 'text',
