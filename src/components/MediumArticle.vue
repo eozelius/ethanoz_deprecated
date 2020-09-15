@@ -55,7 +55,7 @@
 
 <script>
 import isMobile from '@/utils/isMobile'
-import VueEmbedGist from 'vue-embed-gist-nojquery'
+import VueEmbedGist from 'vue-embed-gist'
 
 export default {
   name: 'MediumArticle',

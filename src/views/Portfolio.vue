@@ -41,6 +41,32 @@
       </template>
     </LegoBox>
 
+    <!-- Super(fluous) -->
+    <LegoBox
+      :title="$t('portfolio.superfluous.title')"
+      :description="$t('portfolio.superfluous.description')"
+    >
+      <!-- picture slot -->
+      <template v-slot:picture>
+        <a :href="superfluousLink" target="_blank">
+          <div class="portfolio-picture">
+            <Picture
+              url="demos/superfluous.png"
+              :altText="$t('portfolio.superfluous.superfluousLinkAltText')"
+            />
+          </div>
+        </a>
+      </template>
+
+      <!-- subtext slot -->
+      <template v-slot:subtext>
+        <p>
+          - {{ $t('portfolio.superfluous.githubLink') }}
+          <a href="https://github.com/eozelius/superfluous" target="_blank">github.</a>
+        </p>
+      </template>
+    </LegoBox>
+
     <!-- Weather -->
     <LegoBox
       :title="$t('portfolio.weather.title')"
@@ -84,6 +110,7 @@ export default {
 
   computed: {
     minesweeperLink: () => process.env.VUE_APP_MINESWEEPER_URL,
+    superfluousLink: () => process.env.VUE_APP_SUPERFLUOUS_URL,
     weatherLink: () => process.env.VUE_APP_WEATHER_URL,
     portfolioProfiles: function () {
       return [{

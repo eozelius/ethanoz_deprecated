@@ -1,5 +1,249 @@
 const en = [
   {
+    title: 'Rails to React Migration: Backwards Compatibility. Part 1',
+    mainImagePath: 'rails-to-react-migration-backwards-compatibility-part-1/mt-ida.jpg',
+    mediumLink: 'https://medium.com/swlh/rails-to-react-migration-backwards-compatibility-part-1-dc218b2766ea',
+    paragraphs: [
+      {
+        type: 'text',
+        text: 'Paying customers, backwards compatibility and refactoring'
+      },
+      {
+        type: 'text',
+        text: 'Recently, I agreed to do some work for a fast growing startup. This company and their web application has been active over 2 years, boasting a handful of developers and a sizable amount of early round funding.'
+      },
+      {
+        type: 'text',
+        text: 'We’re not talking enterprise level but the codebase is well beyond a hobbyist project. Zipped the codebase is over 50MB, unzipped over 300MB of tightly wound business logic, duplication and tech debt. But let’s not overlook the fact that this application is in production, and big name clients rely on and (most importantly) pay for its features.'
+      },
+      {
+        type: 'text',
+        text: 'Paying customers don’t care about an application’s tech debt, testing coverage or using the latest frameworks. They want good software today, not perfect software tomorrow.',
+        dots: true
+      },
+      {
+        type: 'text',
+        text: 'Objective: Ripping out the Frontend! I mean, “migrating” the Frontend.'
+      },
+      {
+        type: 'text',
+        text: 'It was immediately clear to me, and other engineers on the team that the greatest need was to separate the Front and Back end codebases. So that’s what I set out to accomplish, with a couple goals to keep in mind.'
+      },
+      {
+        type: 'text',
+        text: '1. Backwards compatibility: The existing website had to continue serving customer’s needs. No closing up shop for 3 months to rebuild everything.'
+      },
+      {
+        type: 'text',
+        text: '2. Piece by Piece: A refactor of this magnitude could only be accomplished little by little.'
+      },
+      {
+        type: 'text',
+        text: '3. Use existing Backend: create new JSON API endpoints to run alongside traditional controllers.'
+      },
+      {
+        type: 'text',
+        text: '4. Abstract Components: Refactor Frontend HTML/ERB templates into React components.'
+      },
+      {
+        type: 'text',
+        text: '5. End goal: full transition to distinct React Frontend. Move templates and features slowly into a new React app that will eventually entirely replace the previous MVC Frontend.'
+      },
+      {
+        type: 'text',
+        text: '6. Have fun.'
+      },
+      {
+        type: 'text',
+        text: 'In my 9 – 5 grind, I’m a Frontend developer, but I have had a few years of experience working with Ruby on Rails backends. I was not prepared for the black hole of code this startup had amassed.'
+      },
+      {
+        type: 'text',
+        text: 'I won’t even mention the backend language or framework, because frankly to this day I still don’t understand how it worked. And you know what? I’m at peace with that. The principles I learned while taking this project on could be applied to any MVC web application migrating to an independent Frontend. For the sake of this article and my sanity, I will code the Backend examples in Ruby, and Frontend examples in React.'
+      },
+      {
+        type: 'text',
+        text: 'Side note: There are dozens of ways to refactor, your situation and code will differ from mine. This series is not a step by step guide on how to migrate any Rails MVC to a React Frontend. React on Rails and React Rails are fantastic gems available to Rails projects to accomplish what this article describes.'
+      },
+      {
+        type: 'text',
+        text: 'Let’s meet our fancy (clunky) MVC app'
+      },
+      {
+        type: 'image',
+        altText: 'GIF of fancy (clunky) MVC app.  Left sidebar has list of featured cars, main is all available cars',
+        url: 'rails-to-react-migration-backwards-compatibility-part-1/clunky.gif'
+      },
+      {
+        type: 'text',
+        text: 'Our example app for this article is: Car Finder!! It’s not cutting edge. And it sure isn’t powered by AI, or Blockchain. But for our purposes, this should work just fine.'
+      },
+      {
+        type: 'text',
+        text: 'The main thing going on in this app is a some sweet 90’s style CSS, hacked together by someone who got fired long ago. First we see a Car Hero, welcoming us to the MVC Car Finder. On the left side is our Featured Cars List. Finally we have our All Cars List list of all the cars. At the moment this app is completely MVC. All of this has been generated with ERB/HTML templates, no JS.'
+      },
+      {
+        type: 'text',
+        text: 'So let’s dive into the code.'
+      },
+      {
+        type: 'text',
+        text: 'Backend (M): Ruby Models'
+      },
+      {
+        type: 'text',
+        text: 'Our car.rb model has several database backed attributes, name, make, style, year, price_min, price_max and color. We included a helper method: featured_cars() to return a list of featured cars.'
+      },
+      {
+        type: 'codeBlock',
+        gistId: '2d7bcd3a9d6600b051c1e73da75d5bec',
+        gistFile: 'app/models/car.rb'
+      },
+      {
+        type: 'text',
+        text: 'Backend (C): Ruby controllers'
+      },
+      {
+        type: 'text',
+        text: 'Our cars_controller.rb contains an index action, where an instances variables are set that will later be used in the template to render our Featured Cars List and All Cars List.'
+      },
+      {
+        type: 'codeBlock',
+        gistId: '9e94171020786c87980a884068235376',
+        gistFile: 'v1_MVC_cars_controller.rb'
+      },
+      {
+        type: 'text',
+        text: 'Frontend (V): ERB/HTML Templates'
+      },
+      {
+        type: 'text',
+        text: 'Our Frontend is generated by Rails ERB/HTML templates. Notice the Rails partial CarsHero being used in an attempt to stay dry and organize our app into components. Then our code iterates over the @all_cars and @featured_cars lists to render blocks of HTML. And people say that HTML isn’t real programming!'
+      },
+      {
+        type: 'codeBlock',
+        gistId: '9caa1304ae622e257304be3d6e67689c',
+        gistFile: 'v1_MVC_cars_index.html.erb',
+        dots: true
+      },
+      {
+        type: 'text',
+        text: 'Injecting React in MVC, as painful as real injection'
+      },
+      {
+        type: 'text',
+        text: 'Before we continue, it’s necessary to go on a small tangent to explain why integrating React into an existing MVC app is such a pain. In a perfect world we’d spark up a new React app with a nifty new framework like Gatsby.js, or Next.js, and our MVC app could just import a couple JS files from localhost and Bam! Everything works. Reality is much different. Building a React bundle requires a lot of work adding dependencies, transpiling JS for browsers, often even compiling images and stylesheets into JS.'
+      },
+      {
+        type: 'text',
+        text: 'This process of selecting a React framework and reverse engineering its build files to be used in your MVC app will require a lot of up front work. But it will be worth in the end to have a stand alone React app.'
+      },
+      {
+        type: 'text',
+        text: 'For this tutorial, we’re going with a more homemade, less scalable solution. We will be using the built in Rails webpacker gem. This solution involves very obvious tradeoff: we can get started right away creating components, but our one-off components can’t benefit from a full-feature React framework like Gatsby or Next.'
+      },
+      {
+        type: 'text',
+        text: 'Rails 6 and Modern JS'
+      },
+      {
+        type: 'text',
+        text: 'Rails has made significant improvements integrating with modern Frontend frameworks, out of the box, rails 6 includes the webpacker gem to easily incorporate modern js. As previously mentioned, react_on_rails and react-rails are great options that I would infinitely recommend over the approach covered in this article. But remember, in real life I wasn’t working with Rails.'
+      },
+      {
+        type: 'text',
+        text: 'With Rails, getting up and running with React is amazing easy, leveraging the built-in webpacker gem.'
+      },
+      {
+        type: 'codeBlock',
+        gistId: 'f045ed00a436890e2816d522d31eaaff',
+        gistFile: 'v2_MVC_javascript_directories',
+        dots: true
+      },
+      {
+        type: 'text',
+        text: 'Our First Component: CarHero.js'
+      },
+      {
+        type: 'text',
+        text: 'With React installed in our MVC app, we’re ready to create our React components and inject them into the existing HTML/ERB templates. Our CarHero Rails partial is a perfect candidate to be refactored into a new React Component.'
+      },
+      {
+        type: 'text',
+        text: 'Create the CarHero.js React component, we can even create SASS styles and it will be compiled flawlessly by Rails. I ❤️ u rails.'
+      },
+      {
+        type: 'codeBlock',
+        gistId: '1bb07320490ed5c1159ed1d806047fd9',
+        gistFile: 'v1_React_CarHero.js'
+      },
+      {
+        type: 'text',
+        text: 'Injected CarHero into our Template'
+      },
+      {
+        type: 'text',
+        text: 'With our CarHero.js component built, we need to prepare our HTML/ERB template to receive the React component. Let’s create a container inside of the HTML/ERB template where we want our component to be injected. We’ll add 2 important properties'
+      },
+      {
+        type: 'text',
+        text: '1. class="react-component" so that we can search for it later with document.querySelectorAll(\'.react-component\')'
+      },
+      {
+        type: 'text',
+        text: '2. data-component="CarHero" so that React knows the name of the component to render.'
+      },
+      {
+        type: 'codeBlock',
+        gistId: 'b475e2d0deff407f8ccb2ac5c125f2de',
+        gistFile: 'V2_MVC_React_cars_index.html.erb'
+      },
+      {
+        type: 'text',
+        text: 'Last step before that beautiful demo time, we have to write a simple JS script render the React components. Create a react_components_manifest.js pack, although you can name the script whatever you’d like.'
+      },
+      {
+        type: 'text',
+        text: 'touch app/javascript/packs/react_components_manifest.js'
+      },
+      {
+        type: 'codeBlock',
+        gistId: '1ed103edb4bc4c809d14bc72f9a69272',
+        gistFile: 'react_components_manifest.js'
+      },
+      {
+        type: 'text',
+        text: 'This script imports our dependencies and components, then adds a document.ready event to find all HTML elements with the react-component class. Then iterates on each DOM element, extracting the React Component that will be rendered from the data-component attribute. Finally we render the component into the DOM element with ReactDOM.render(React.createElement(<Component>, <domNode>))'
+      },
+      {
+        type: 'text',
+        text: 'Our First Component in Action'
+      },
+      {
+        type: 'image',
+        altText: 'Gif of our first React Component injected into the MVC app.',
+        url: 'rails-to-react-migration-backwards-compatibility-part-1/spa-in-action.gif',
+        dots: true
+      },
+      {
+        type: 'text',
+        text: 'Conclusion'
+      },
+      {
+        type: 'text',
+        text: 'And with that, we’ve enabled our MVC app to use injected React components. We’ve maintained backwards compatibility for our customers, and trail-blazed a path forward for our developers to build a service-based architecture. We will continue our migration by extracting the AllCars and FeaturedCars components from MVC into React, and even and an impromptu new search feature. Because no refactor would be complete without last minute product requirements.'
+      },
+      {
+        type: 'text',
+        text: 'Thanks for reading, I hope you’ve learned something or at least laughed at my misfortunes.'
+      },
+      {
+        type: 'text',
+        text: 'Any feedback would be greatly appreciated, or passive aggressively ignored.'
+      }
+    ]
+  },
+  {
     title: 'Vue.js Mobile Desktop Optimized Images',
     mainImagePath: 'vue-js-mobile-desktop-optimized-images/original_salento.jpg',
     mediumLink: 'https://medium.com/@e.ozelius/vue-js-mobile-desktop-optimized-images-7b93f2afc43b',
