@@ -801,7 +801,7 @@
   integrity sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
   dependencies:
     exec-sh "^0.3.2"
-    minimist "^1.2.5"
+    minimist "^1.2.0"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -1445,7 +1445,7 @@
     lodash.mapvalues "^4.6.0"
     lodash.transform "^4.6.0"
     mini-css-extract-plugin "^0.9.0"
-    minimist "^1.2.5"
+    minimist "^1.2.0"
     pnp-webpack-plugin "^1.6.0"
     portfinder "^1.0.25"
     postcss-loader "^3.0.0"
@@ -6751,7 +6751,7 @@ json5@^1.0.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
   integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
   dependencies:
-    minimist "^1.2.5"
+    minimist "^1.2.0"
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -7505,7 +7505,7 @@ mkdirp@0.5.1:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
-    minimist "^1.2.5"
+    minimist "0.0.8"
 
 mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@~0.5.1:
   version "0.5.4"
@@ -8023,7 +8023,7 @@ optimist@^0.6.1:
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
   integrity sha1-2j6nRob6IaGaERwybpDrFaAZZoY=
   dependencies:
-    minimist "^1.2.5"
+    minimist "~0.0.1"
     wordwrap "~0.0.2"
 
 optionator@^0.8.1, optionator@^0.8.3:
@@ -9576,7 +9576,7 @@ sane@^4.0.3:
     execa "^1.0.0"
     fb-watchman "^2.0.0"
     micromatch "^3.1.4"
-    minimist "^1.2.5"
+    minimist "^1.1.1"
     walker "~1.0.5"
 
 sass-loader@^8.0.2:
@@ -10996,10 +10996,10 @@ vue-class-component@^7.1.0, vue-class-component@^7.2.2:
   resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.3.tgz#a5b1abd53513a72ad51098752e2dedd499807cca"
   integrity sha512-oEqYpXKaFN+TaXU+mRLEx8dX0ah85aAJEe61mpdoUrq0Bhe/6sWhyZX1JjMQLhVsHAkncyhedhmCdDVSasUtDw==
 
-vue-embed-gist-nojquery@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vue-embed-gist-nojquery/-/vue-embed-gist-nojquery-1.0.1.tgz#7f5bbaf61356ae925e34e147e132af724fe05b92"
-  integrity sha512-JMD4eYNI0G6lfRDxSd6G6ctPXSv2DzeST3RUJ4nensWNyWz639cQtEEaUm/IniYAIYK16nXbTDHs0bwfT42rgg==
+vue-embed-gist@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-embed-gist/-/vue-embed-gist-1.1.0.tgz#480a2d060ceb12b1ea62f0aa5585b1d6a3102bd1"
+  integrity sha512-fB4n8MsUIPD4ndyUCH3mDIFYdYcvSZw/FbykSgWmKXZK8TSDs4scgQY8rU1HZ9jk+u1jS2vMSHzlGh5/QXEM1A==
   dependencies:
     jsonp "^0.2.1"
 
@@ -11282,7 +11282,7 @@ websocket-driver@>=0.5.1:
   dependencies:
     http-parser-js ">=0.4.0 <0.4.11"
     safe-buffer ">=5.1.0"
-    websocket-extensions ">=0.1.4"
+    websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.4, websocket-extensions@^0.1.4:
   version "0.1.4"

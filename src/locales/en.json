@@ -25,13 +25,19 @@
     "minesweeper": {
       "title": "Minesweeeper",
       "description": "Classic minesweeper game that is fully customizable for size and difficulty.  Built in Vue.js, dockerized and deployed into AWS with Nginx.",
-      "minesweeperLinkAltText": "Minesweeper demo link",
+      "minesweeperLinkAltText": "Minesweeper demo link: https://minesweeper.ethanoz.com",
       "githubLink": "View this project on"
     },
     "weather": {
       "title": "5 day weather forcast - now with more freezing rain",
       "description": "Simple 5 day weather app for New York city.  Bootstrapped with Create-react-app, dockerized and deployed into AWS with Nginx.",
-      "weatherLinkAltText": "5 day weather forecast demo link",
+      "weatherLinkAltText": "5 day weather forecast demo link: https://weather.ethanoz.com",
+      "githubLink": "View this project on"
+    },
+    "superfluous": {
+      "title": "Everyone likes strings, but you'll love Super(fluous)ly Encoded Bytecode!",
+      "description": "The Super(fluous) Encoder scrambles bundles of 4 characters into 32-bit integer values",
+      "superfluousLinkAltText": "Superfluous Encoder link: https://bit-encoder.ethanoz.com",
       "githubLink": "View this project on"
     }
   },
