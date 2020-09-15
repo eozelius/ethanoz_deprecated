@@ -19,6 +19,7 @@
         v-for="(article, i) in articles"
         :key="i"
         :article="article"
+        :tags="article.tags"
       />
     </div>
   </main>

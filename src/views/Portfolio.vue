@@ -21,6 +21,7 @@
     <LegoBox
       :title="$t('portfolio.minesweeper.title')"
       :description="$t('portfolio.minesweeper.description')"
+      :tags="minesweeperTags"
     >
       <!-- picture slot -->
       <template v-slot:picture>
@@ -45,6 +46,7 @@
     <LegoBox
       :title="$t('portfolio.superfluous.title')"
       :description="$t('portfolio.superfluous.description')"
+      :tags="superfluousTags"
     >
       <!-- picture slot -->
       <template v-slot:picture>
@@ -71,6 +73,7 @@
     <LegoBox
       :title="$t('portfolio.weather.title')"
       :description="$t('portfolio.weather.description')"
+      :tags="weatherTags"
     >
       <!-- picture slot -->
       <template v-slot:picture>
@@ -99,6 +102,7 @@
 import LegoViewTitle from '@/legos/LegoViewTitle.vue'
 import Picture from '@/components/Picture.vue'
 import LegoBox from '@/legos/LegoBox.vue'
+import { TAGS } from '@/constants'
 
 export default {
   name: 'Portfolio',
@@ -121,7 +125,23 @@ export default {
         text: this.$t('portfolio.linkedIn'),
         link: this.$t('portfolio.linkedInLink')
       }]
-    }
+    },
+    superfluousTags: () => [
+      TAGS.typescript,
+      TAGS.javascript,
+      TAGS.webpack
+    ],
+    weatherTags: () => [
+      TAGS.react,
+      TAGS.createreactapp,
+      TAGS.javascript,
+      TAGS.webpack
+    ],
+    minesweeperTags: () => [
+      TAGS.vue,
+      TAGS.javascript,
+      TAGS.webpack
+    ]
   }
 }
 </script>

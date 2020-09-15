@@ -37,6 +37,17 @@
       </div>
       <slot v-else name="subtext"></slot>
     </div>
+
+    <!-- Tags -->
+    <div v-if="tags.length" class="box-tags">
+      <span
+        v-for="tag in tags"
+        :key="tag"
+        class="tag"
+      >
+        {{ tag }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -70,6 +81,10 @@ export default {
     imageAltText: {
       type: String,
       default: 'image'
+    },
+    tags: {
+      type: Array,
+      default: () => []
     }
   }
 }
@@ -101,6 +116,10 @@ export default {
 
   .box-subtext a {
     color: $color-dark-aqua;
+  }
+
+  .tag {
+    @include tag;
   }
 }
 </style>

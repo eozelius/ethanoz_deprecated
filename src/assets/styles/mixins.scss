@@ -7,3 +7,13 @@
   background-color: $color-lite-blue-gray;
   border-radius: 5px;
 }
+
+@mixin tag {
+  background-color: $color-solarized-blue-text;
+  color: $color-white;
+  margin: 5% 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight:bold;
+}

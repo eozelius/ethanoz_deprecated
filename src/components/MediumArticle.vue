@@ -50,6 +50,16 @@
         medium
       </a>
     </p>
+
+    <div v-if="tags.length">
+      <span
+        v-for="tag in tags"
+        :key="tag"
+        class="tag"
+      >
+        {{ tag }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -75,6 +85,10 @@ export default {
     article: {
       type: Object,
       required: true
+    },
+    tags: {
+      type: Array,
+      default: () => []
     }
   },
 
@@ -93,6 +107,10 @@ export default {
 
 .medium-article__container {
   @include bluebox;
+}
+
+.tag {
+  @include tag;
 }
 
 .medium-article__title {
