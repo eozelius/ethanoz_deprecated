@@ -1,12 +1,42 @@
 <template>
-  <div class="medium-article__container">
+  <div :class="{ 'medium-article__container': true, 'abridged': abridged }">
+    <div v-if="abridged" class="medium-article__overlay">
+      <div class="overlay__read-more-container">
+        <p @click="toggleAbridged">{{ $t('medium.more') }}</p>
+      </div>
+    </div>
+
     <h2 class="medium-article__title">{{ article.title }}</h2>
+
+    <div class="medium-article__tags-container" v-if="tags.length">
+      <span
+        v-for="tag in tags"
+        :key="tag"
+        class="tag"
+      >
+        {{ tag }}
+      </span>
+    </div>
 
     <img
       :src="require(`@/assets/images/medium/${getIsMobile ? 'small': 'large'}/${article.mainImagePath}`)"
       :alt="`${article.title} image`"
       class="medium-article__banner-image"
     />
+
+    <div class="medium-article__link-and-publish-date-container">
+      <p class="medium-article-link" v-if="article.mediumLink">
+        <a
+          class="medium-article-link"
+          :href="article.mediumLink"
+          target="_blank"
+        >
+          {{ $t('medium.readOnMedium') }} medium
+        </a>
+      </p>
+
+      <p class="publish-date"> - {{ $t('medium.published') }} {{ article.publishDate }}</p>
+    </div>
 
     <div
       v-for="(p, i) in article.paragraphs"
@@ -39,27 +69,6 @@
         ...
       </span>
     </div>
-
-    <p v-if="article.mediumLink">
-      {{ $t('medium.readOnMedium') }}
-      <a
-        class="medium-article-link"
-        :href="article.mediumLink"
-        target="_blank"
-      >
-        medium
-      </a>
-    </p>
-
-    <div v-if="tags.length">
-      <span
-        v-for="tag in tags"
-        :key="tag"
-        class="tag"
-      >
-        {{ tag }}
-      </span>
-    </div>
   </div>
 </template>
 
@@ -77,7 +86,8 @@ export default {
   data: function () {
     return {
       addMobileClass: isMobile(),
-      size: isMobile() ? 'small' : 'large'
+      size: isMobile() ? 'small' : 'large',
+      abridged: true
     }
   },
 
@@ -95,6 +105,12 @@ export default {
   computed: {
     getIsMobile () {
       return isMobile()
+    }
+  },
+
+  methods: {
+    toggleAbridged () {
+      this.abridged = false
     }
   }
 }
@@ -137,7 +153,55 @@ export default {
   align-self: center;
 }
 
-.medium-article-link {
-  color: $color-dark-aqua;
+.medium-article__tags-container {
+  margin-bottom: 15%;
+}
+
+.medium-article__link-and-publish-date-container {
+  margin-bottom: 15%;
+
+  .publish-date,
+  .medium-article-link {
+    text-align: right;
+    margin: 0 5% 3% 0;
+    color: $color-solarized-dark-blue;
+
+    a {
+      margin: 0;
+    }
+  }
+}
+
+.medium-article__overlay {
+  display:flex;
+  width: 110%;
+  margin-left: -5%;
+  position: relative;
+  height: 95px;
+  top: 1970px;
+  right: 0;
+  left: 0;
+  background: rgb(137,179,190);
+  background: linear-gradient(0deg, rgba(137,179,190,1) 31%, rgba(230,238,240,0.80015756302521) 100%);
+}
+
+.overlay__read-more-container {
+  align-self: center;
+  width: 100%;
+
+  p {
+    cursor: pointer;
+    text-align: right;
+    margin: 0 5% 0 0;
+
+    &:hover {
+      font-size: 1.45em;
+    }
+  }
+}
+
+.abridged {
+  height: 2000px;
+  overflow: hidden;
 }
 </style>

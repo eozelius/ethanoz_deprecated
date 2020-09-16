@@ -45,6 +45,8 @@
   "medium": {
     "title": "Musings of a drifting hacker",
     "logoAltText": "medium.com logo",
+    "published": "published",
+    "more": "read more",
     "description": "I write, usually with a technical twist, hopefully funny, but if nothing else it's saved on the internet forever.",
     "subtext": "medium profile",
     "mediumLink": "https://medium.com/@e.ozelius",
