@@ -5,6 +5,7 @@ const en = [
     title: 'Rails to React Migration: Backwards Compatibility. Part 1',
     mainImagePath: 'rails-to-react-migration-backwards-compatibility-part-1/mt-ida.jpg',
     mediumLink: 'https://medium.com/swlh/rails-to-react-migration-backwards-compatibility-part-1-dc218b2766ea',
+    publishDate: 'August 3rd, 2020',
     tags: [
       TAGS.react,
       TAGS.createreactapp,
@@ -255,6 +256,7 @@ const en = [
     title: 'Vue.js Mobile Desktop Optimized Images',
     mainImagePath: 'vue-js-mobile-desktop-optimized-images/original_salento.jpg',
     mediumLink: 'https://medium.com/@e.ozelius/vue-js-mobile-desktop-optimized-images-7b93f2afc43b',
+    publishDate: 'July 14th, 2020',
     tags: [
       TAGS.vue,
       TAGS.javascript
@@ -454,6 +456,7 @@ const en = [
     title: 'Rails New Barebones JSON API Alias',
     mediumLink: 'https://medium.com/@e.ozelius/rails-new-barebones-api-24905d434073',
     mainImagePath: 'rails-new-barebones-json-api-alias/dino-skeleton.png',
+    publishDate: 'July 2nd, 2020',
     tags: [
       TAGS.rubyonrails
     ],
